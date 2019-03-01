@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>代理人详情</title>
+    <link rel="stylesheet" href="css/swiper-3.4.2.min.css">
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/swiper-3.4.2.jquery.min.js"></script>
+    <style>
+        *{
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+           -webkit-box-sizing: border-box;
+           font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        button{
+            border: none;
+            outline: none;
+        }
+        img{
+            width: auto;
+            height: 100%;
+        }
+        .swiper-container,.swiper-wrapper{
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .swiper-container{
+            background: url(images/bg.jpg) no-repeat center;
+            background-size:auto 100%;
+        }
+        .swiper-slide{
+            width: 85%;
+            max-width: 500px;
+            height: 100%;
+            margin: 0 auto;
+            /* background: coral; */
+        }
+        .photo{
+            height: 70%;
+            position: relative;
+        }
+        .photo div{
+            position: absolute;
+        }
+        .suit,.guo{
+            margin: 10px auto;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            /* background: #abcdef; */
+        }
+        .active{
+            z-index: 5;
+        }
+        
+        .desc{
+            width: 100%;
+            position: relative; 
+            color:#fff;
+            line-height:30px;
+            position: absolute;
+            bottom: 8%;
+        }
+        .desc .name{
+            font-size:16px;
+            font-family:PingFang-SC-Bold;
+            font-weight:bold;
+            /* line-height:114px; */
+            padding-right: 7px;
+        }
+        .desc .position{
+            font-size:13px;
+            font-family:PingFang-SC-Heavy;
+            font-weight:800;
+        }
+        .desc .intro{
+            font-size:13px;
+            font-family:PingFang-SC-Regular;
+            font-weight:400;
+            line-height:20px;
+            padding: 5px 0;
+        }
+        .zan{
+            width: 100%;
+            height:40px;
+            display: block;
+            margin: 0 auto;
+            background:rgba(9,187,7,1);
+            border-radius:5px;
+        }
+        .zan div{
+            display: inline-block;
+            width: 49%;
+            height: 40px;
+            text-align: center;
+            color:#fff;
+            line-height: 40px;
+        }
+        .zan img{
+            width: 20px;
+            height: 17px;
+        }
+        .zan .total{
+            font-size:22px;
+            font-family:PingFang-SC-Bold;
+            font-weight:bold;
+        }
+        .zan .canup{
+            font-size:18px;
+            font-family:PingFang-SC-Medium;
+            font-weight:500;
+        }
+        .slide{
+            width: 100%;
+            text-align: center;
+            font-size:14px;
+            font-family:PingFang-SC-Regular;
+            font-weight:400;
+            color:rgba(134,134,134,1);
+            opacity:0.5;
+            position: absolute;
+            bottom: 3%;
+        }
+        .slide img{
+            width: 10px;
+            height: 10px;
+        }
+        .disabled{
+            background:rgb(159, 212, 158); 
+        }
+    </style>
+</head>
+<body>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="photo">
+                    <div class="suit active"><img src="https://hangzhouqusu.oss-cn-hangzhou.aliyuncs.com/陈宗卿_1_正.jpg" alt=""></div>
+                    <div class="guo"><img src="https://hangzhouqusu.oss-cn-hangzhou.aliyuncs.com/陈宗卿_1_国.jpg" alt=""></div>
+                </div>
+                <div class="desc">
+                    <div><span class="name">陈宗卿</span><span class="position">常州分公司总经理</span></div>
+                    <button class="zan" data-agentid="1">
+                        <div>
+                            <img src="images/like.png" alt="">
+                            <span class="total">18501</span>
+                        </div>
+                        <div class="canup">为他点赞</div>
+                    </button>
+                </div>
+                <div class="slide"><img src="images/next.png">
+                    下滑下一位</div>
+            </div>
+            <div class="swiper-slide">
+                <div class="photo">
+                    <div class="suit active"><img src="https://hangzhouqusu.oss-cn-hangzhou.aliyuncs.com/崔久凤_2_正.jpg" alt=""></div>
+                    <div class="guo"><img src="https://hangzhouqusu.oss-cn-hangzhou.aliyuncs.com/崔久凤_2_国.jpg" alt=""></div>
+                </div>
+                <div class="desc">
+                    <div><span class="name">崔久凤</span><span class="position">常州分公司总经理</span></div>
+                    <button class="zan" data-agentid="2">
+                        <div>
+                            <img src="images/like.png" alt="">
+                            <span class="total">18501</span>
+                        </div>
+                        <div class="canup">为他点赞</div>
+                    </button>
+                </div>
+                <div class="slide"><img src="images/next.png">
+                    下滑下一位</div>
+            </div>
+            <div class="swiper-slide">
+                <div class="photo">
+                    <div class="suit active"><img src="https://hangzhouqusu.oss-cn-hangzhou.aliyuncs.com/付宇_3_正.jpg" alt=""></div>
+                    <div class="guo"><img src="https://hangzhouqusu.oss-cn-hangzhou.aliyuncs.com/付宇_3_国.jpg" alt=""></div>
+                </div>
+                <div class="desc">
+                    <div><span class="name">付宇</span><span class="position">常州分公司总经理</span></div>
+                    <button class="zan" data-agentid="3">
+                        <div>
+                            <img src="images/like.png" alt="">
+                            <span class="total">18501</span>
+                        </div>
+                        <div class="canup">为他点赞</div>
+                    </button>
+                </div>
+                <div class="slide"><img src="images/next.png">
+                    下滑下一位</div>
+            </div>
+            <div class="swiper-slide">
+                <div class="photo">
+                    <div class="suit active"><img src="https://hangzhouqusu.oss-cn-hangzhou.aliyuncs.com/郭维_4_正.jpg" alt=""></div>
+                    <div class="guo"><img src="https://hangzhouqusu.oss-cn-hangzhou.aliyuncs.com/郭维_4_国.jpg" alt=""></div>
+                </div>
+                <div class="desc">
+                    <div><span class="name">郭维</span><span class="position">常州分公司总经理</span></div>
+                    <button class="zan" data-agentid="4">
+                        <div>
+                            <img src="images/like.png" alt="">
+                            <span class="total">18501</span>
+                        </div>
+                        <div class="canup">为他点赞</div>
+                    </button>
+                </div>
+                <div class="slide"><img src="images/next.png">
+                    下滑下一位</div>
+            </div>
+            <div class="swiper-slide">
+                <div class="photo">
+                    <div class="suit active"><img src="https://hangzhouqusu.oss-cn-hangzhou.aliyuncs.com/贾新选_5_正.jpg" alt=""></div>
+                    <div class="guo"><img src="https://hangzhouqusu.oss-cn-hangzhou.aliyuncs.com/贾新选_5_国.jpg" alt=""></div>
+                </div>
+                <div class="desc">
+                    <div><span class="name">贾新选</span><span class="position">常州分公司总经理</span></div>
+                    <button class="zan" data-agentid="5">
+                        <div>
+                            <img src="images/like.png" alt="">
+                            <span class="total">18501</span>
+                        </div>
+                        <div class="canup">为他点赞</div>
+                    </button>
+                </div>
+                <div class="slide"><img src="images/next.png">
+                    下滑下一位</div>
+            </div>
+            <div class="swiper-slide">
+                <div class="photo">
+                    <div class="suit active"><img src="https://hangzhouqusu.oss-cn-hangzhou.aliyuncs.com/雷利华_6_正.jpg" alt=""></div>
+                    <div class="guo"><img src="https://hangzhouqusu.oss-cn-hangzhou.aliyuncs.com/雷利华_6_国.jpg" alt=""></div>
+                </div>
+                <div class="desc">
+                    <div><span class="name">雷利华</span><span class="position">常州分公司总经理</span></div>
+                    <button class="zan" data-agentid="6">
+                        <div>
+                            <img src="images/like.png" alt="">
+                            <span class="total">18501</span>
+                        </div>
+                        <div class="canup">为他点赞</div>
+                    </button>
+                </div>
+                <div class="slide"><img src="images/next.png">
+                    下滑下一位</div>
+            </div>
+            <div class="swiper-slide">
+                <div class="photo">
+                    <div class="suit active"><img src="https://hangzhouqusu.oss-cn-hangzhou.aliyuncs.com/刘天怡_7_正.jpg" alt=""></div>
+                    <div class="guo"><img src="https://hangzhouqusu.oss-cn-hangzhou.aliyuncs.com/刘天怡_7_国.jpg" alt=""></div>
+                </div>
+                <div class="desc">
+                    <div><span class="name">刘天怡</span><span class="position">常州分公司总经理</span></div>
+                    <button class="zan" data-agentid="7">
+                        <div>
+                            <img src="images/like.png" alt="">
+                            <span class="total">18501</span>
+                        </div>
+                        <div class="canup">为他点赞</div>
+                    </button>
+                </div>
+                <div class="slide"><img src="images/next.png">
+                    下滑下一位</div>
+            </div>
+            <div class="swiper-slide">
+                <div class="photo">
+                    <div class="suit active"><img src="https://hangzhouqusu.oss-cn-hangzhou.aliyuncs.com/乌尼尔_8_正.jpg" alt=""></div>
+                    <div class="guo"><img src="https://hangzhouqusu.oss-cn-hangzhou.aliyuncs.com/乌尼尔_8_国.jpg" alt=""></div>
+                </div>
+                <div class="desc">
+                    <div><span class="name">乌尼尔</span><span class="position">常州分公司总经理</span></div>
+                    <button class="zan" data-agentid="8">
+                        <div>
+                            <img src="images/like.png" alt="">
+                            <span class="total">18501</span>
+                        </div>
+                        <div class="canup">为他点赞</div>
+                    </button>
+                </div>
+                <div class="slide"><img src="images/next.png">
+                    下滑下一位</div>
+            </div>
+            <div class="swiper-slide"></div>
+        </div>
+    </div>
+    <script>
+    $(function(){
+        var uuid = window.localStorage.getItem('uuid')
+        var agentid = 1
+        var suit= ['陈宗卿_1_正.jpg','崔久凤_2_正.jpg','付宇_3_正.jpg','郭维_4_正.jpg','贾新选_5_正.jpg','雷利华_6_正.jpg','刘天怡_7_正.jpg','乌尼尔_8_正.jpg']
+        var guo= ['陈宗卿_1_国.jpg','崔久凤_2_国.jpg','付宇_3_国.jpg','郭维_4_国.jpg','贾新选_5_国.jpg','雷利华_6_国.jpg','刘天怡_7_国.jpg','乌尼尔_8_国.jpg']
+        getinfo(agentid)
+        getinfo(agentid+1)
+        $('.swiper-slide:nth-child(1) .zan').attr('disabled',true)
+        var mySwiper = new Swiper ('.swiper-container', {
+            direction: 'vertical',
+            effect:'coverflow',
+            parallax : true,
+            // preloadImages:false,
+            lazyLoading : true,
+            onSlidePrevEnd:function(){
+                agentid--
+                // console.log(agentid)
+            },
+            onSlideNextEnd:function(){
+                agentid++
+                // console.log(agentid)
+                if(agentid<8){
+                    getinfo(agentid+1)
+                }
+            },
+            onReachEnd:function(swiper){
+                window.location.href = 'share.html'
+            }
+        })        
+        
+        function getinfo(id){
+            // console.log(id)
+            $.ajax({
+                url: 'https://smooth.jiaoyinhudong.com/api/smooth/get',
+                type:'post',
+                data: JSON.stringify({
+                    "uuid": uuid, 
+                    "agent_id":id
+                }),
+                dataType:'json',
+                contentType: 'application/json',
+                success: function(res){
+                    console.log('get')
+                    if(res.code==2200){
+                        $('.swiper-slide:nth-child('+id+') .total').html(res.data.ups)
+                        $('.swiper-slide:nth-child('+id+') .canup').html(res.data.msg)
+                        if(res.data.canup == 0){
+                            //切换颜色
+                            $('.swiper-slide:nth-child('+id+') .zan').removeClass('disabled')
+                            $('.swiper-slide:nth-child('+id+') .zan').removeAttr('disabled')
+                        }else{
+                            $('.swiper-slide:nth-child('+id+') .zan').addClass('disabled')
+                            $('.swiper-slide:nth-child('+id+') .zan').attr('disabled',true)
+                        }
+                    }   
+                }
+            })
+        }
+        $('.photo').on('click', function(){
+            $('.swiper-slide-active .photo div').toggleClass('active')
+        })
+
+        $('.zan').on('click', function(){
+            // console.log(agentid)
+            $.ajax({
+                url: 'https://smooth.jiaoyinhudong.com/api/smooth/up',
+                type:'post',
+                data: JSON.stringify({
+                    "uuid": uuid, 
+                    "agent_id":agentid
+                }),
+                async: false,
+                dataType:'json',
+                contentType: 'application/json',
+                success: function(res){
+                    console.log('up')
+                    console.log(res)
+                    alert(res.msg)
+                    if(res.code ==2200){
+                        getinfo(agentid)
+                    }
+                }
+            })
+        })
+        //去掉alert头
+        window.alert = function (name) {
+            var iframe = document.createElement('IFRAME');
+            iframe.style.display = 'none';
+            iframe.setAttribute('src', '');
+            document.documentElement.appendChild(iframe);
+            window.frames[0].window.alert(name);
+            iframe.parentNode.removeChild(iframe);
+        };
+    })
+        
+    </script>
+</body>
+</html>

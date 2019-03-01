@@ -1,0 +1,17 @@
+html,body{ height: 100%;}
+body{font-family:avenir next,'sans-serif';width:100%}
+
+.container{position:relative;-webkit-transition:all .3s ease;transition:all .3s ease; height: 100%}
+div[class*=card-container]{position:relative; margin-top: 50px; margin-left: 5%; width:80%;height:80%;-webkit-perspective:500px;perspective:500px}
+
+.card-container .controller{cursor:pointer;cursor:hand;position:absolute;z-index:200;top:0;width:100%;height:100%;}
+.card-container .controller.left{left:0}
+.card-container .card{position:absolute;left:0;top:0;width:100%;height:100%;-webkit-transition:all .3s ease;transition:all .3s ease;}
+.card-container .card img{max-width: 100%;}
+.card-container .card:first-of-type{z-index:100}
+.card-container .card:nth-of-type(2){z-index:90}
+/* .card-container .right:hover~.card:first-of-type{-webkit-transform:rotateY(20deg) translateZ(0px);transform:rotateY(20deg) translateZ(0px)}
+.card-container .right:hover~.card:nth-last-of-type(2){-webkit-transform:rotateY(20deg) translateZ(-100px);transform:rotateY(20deg) translateZ(-100px)}
+.card-container .right:hover~.card:last-of-type{-webkit-transform:rotateY(20deg) translateZ(-200px);transform:rotateY(20deg) translateZ(-200px)} */
+.card-container .left~.card:first-of-type{left: 0px;transform:rotateY(0deg) translateX(0px) translateY(0px) translateZ(0px)}
+.card-container .left~.card:last-of-type{ left: 30px;transform:rotateY(0deg) translateX(20px) translateY(-5px) translateZ(-60px)}

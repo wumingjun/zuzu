@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>投票首页</title>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <style>
+        *{
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+           -webkit-box-sizing: border-box;
+           font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        .container{
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        button{
+            border: none;
+            outline: none;
+            display: block;
+            width: 90%;
+            height: 40px;
+            background:rgba(9,187,7,1);
+            border-radius:5px;
+            font-size:17px;
+            font-family:PingFang-SC-Medium;
+            font-weight:500;
+            color:#fff;
+            line-height:40px;
+            position: absolute;
+            bottom: 8%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo"></div>
+        <button>开始投票</button>
+    </div>
+    
+    <script>
+        $(function(){
+            var href = window.location.href
+            var shareid = ''
+            if(href.match(/\?shareid=(\S*)/)){
+                shareid = href.match(/\?shareid=(\S*)/)[1]
+                window.sessionStorage.setItem('shareid',shareid)
+            }
+            if(href.match(/\?code=(\S*)&/)){
+                var code = href.match(/\?code=(\S*)&/)[1]
+                if(window.sessionStorage.getItem('shareid')){
+                    shareid = window.sessionStorage.getItem('shareid')
+                }
+                $.ajax({
+                    url: 'https://smooth.jiaoyinhudong.com/api/user/register',
+                    type:'post',
+                    data: JSON.stringify({
+                        code: code,
+                        shareid: shareid
+                    }),
+                    async: false,
+                    dataType:'json',
+                    contentType: 'application/json',
+                    success: function(res){
+                        console.log('register')
+                        window.localStorage.setItem('uuid',res.data.open_id)
+                        window.localStorage.setItem('nickname',res.data.nickname)
+                        window.localStorage.setItem('headimgurl',res.data.headimgurl)
+                    }
+                })
+            }
+            // if(!window.localStorage.getItem('uuid')){
+            //     window.location.href = 'https://smooth.jiaoyinhudong.com/login.html'
+            // }
+
+            $('button').on('click', function(){
+                window.location.href = 'detail.html'
+            })
+        })
+
+        
+    </script>
+</body>
+</html>
